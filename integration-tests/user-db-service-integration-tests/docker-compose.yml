@@ -1,0 +1,9 @@
+ethereum-user-db-service:
+  build: .
+  command: "/bin/bash -c 'sleep 20 && cd ethereum-user-db-service && npm test'"
+  links:
+   - user-db-test
+user-db-test:
+  build: ./ethereum-user-db-test
+  ports:
+   - 3306:3306

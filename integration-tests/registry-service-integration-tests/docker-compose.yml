@@ -1,0 +1,10 @@
+ethereum-registry-service:
+  build: .
+  command: "/bin/bash -c 'sleep 20 && jasmine-node ethereum-registration-service/test'"
+  links:
+   - go-ethereum
+go-ethereum:
+  build: ../../staging/go-ethereum
+  command: "/bin/bash /start.sh 0x400 0xFFFFFFFFFFF"
+  ports:
+   - 8545:8545
