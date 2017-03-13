@@ -1,4 +1,4 @@
 *.exe
-staging
+staging/*~
 */datadir/**
 .idea
