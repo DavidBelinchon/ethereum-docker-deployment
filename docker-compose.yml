@@ -2,7 +2,7 @@ ethereum-authentication-server:
   build: ./staging/ethereum-authentication-server
   ports:
    - 3000:3000
-  command: "/bin/bash start.sh ETHEREUM-SERVER-URL user-db FIREBASE-API-KEY CONTRACT-ADDRESS"
+  command: "/bin/bash start.sh ETHEREUM-SERVER-URL user-db FIREBASE-API-KEY CONTRACT-ADDRESS MANDRILL-KEY MANDRILL-EMAIL-TO"
   links:
    - user-db
 ethereum-web:
