@@ -2,7 +2,7 @@ ethereum-authentication-server:
   build: ./staging/ethereum-authentication-server
   ports:
    - 3000:3000
-  command: "/bin/bash start.sh http://go-ethereum:8545 user-db FIREBASE-API-KEY"
+  command: "/bin/bash start.sh http://go-ethereum:8545 user-db FIREBASE-API-KEY MANDRILL-KEY MANDRILL-EMAIL-TO"
   links:
    - go-ethereum
    - user-db
