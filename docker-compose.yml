@@ -9,7 +9,7 @@ ethereum-web:
   build: ./staging/ethereum-sample-web
   ports:
    - 3001:3001
-  command: "/bin/bash start.sh AUTH-SERVER-URL"
+  command: "/bin/bash start.sh https://localhost:3000/ ETHEREUM-SERVER-URL CONTRACT-ADDRESS JWT-TIMEOUT"
   links:
    - ethereum-authentication-server
 user-db:
