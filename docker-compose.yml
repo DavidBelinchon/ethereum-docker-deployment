@@ -2,14 +2,16 @@ ethereum-authentication-server:
   build: ./staging/ethereum-authentication-server
   ports:
    - 3000:3000
-  command: "/bin/bash start.sh ETHEREUM-SERVER-URL user-db FIREBASE-API-KEY CONTRACT-ADDRESS MANDRILL-KEY MANDRILL-EMAIL-TO"
+  command: "/bin/bash start.sh http://go-ethereum:8545 user-db FIREBASE-API-KEY CONTRACT-ADDRESS MANDRILL-KEY asd@apostols.org"
   links:
    - user-db
+  external_links:
+   - go-ethereum
 ethereum-web:
   build: ./staging/ethereum-sample-web
   ports:
    - 3001:3001
-  command: "/bin/bash start.sh AUTH-SERVER-URL"
+  command: "/bin/bash start.sh https://localhost:3000/"
   links:
    - ethereum-authentication-server
 user-db:
