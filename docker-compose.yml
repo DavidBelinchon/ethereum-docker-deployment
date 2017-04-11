@@ -2,23 +2,16 @@ ethereum-authentication-server:
   build: ./staging/ethereum-authentication-server
   ports:
    - 3000:3000
-  command: "/bin/bash start.sh http://go-ethereum:8545 user-db FIREBASE-API-KEY MANDRILL-KEY MANDRILL-EMAIL-TO"
+  command: "/bin/bash start.sh http://go-ethereum:8545 user-db FIREBASE-API-KEY CONTRACT-ADDRESS MANDRILL-KEY MANDRILL-EMAIL-TO"
   links:
-   - go-ethereum
    - user-db
 ethereum-web:
   build: ./staging/ethereum-sample-web
   ports:
    - 3001:3001
-  command: "/bin/bash start.sh https://localhost:3000/"
+  command: "/bin/bash start.sh https://localhost:3000/ ETHEREUM-SERVER-URL CONTRACT-ADDRESS JWT-TIMEOUT"
   links:
    - ethereum-authentication-server
-go-ethereum:
-  build: ./staging/go-ethereum
-  command: "/bin/bash /start.sh"
-  ports:
-   - 8545:8545
-   - 30303:30303
 user-db:
   build: ./staging/ethereum-user-db-docker
   ports:
