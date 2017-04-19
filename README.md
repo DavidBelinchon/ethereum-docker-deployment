@@ -11,6 +11,13 @@ First, clone the project. The cd into it. Then run the following command
 ./clone.sh
 ```
 
+Put the private keys and certificcates in the keys directory
+- keys/certs/server.crt
+- keys/certs/server.csr
+- keys/certs/server.key
+- keys/rsa_keys/id_rsa
+- keys/rsa_keys/id_rsa.pub
+
 This script will checkout all the required projects to the 'staging'
 directory. It may prompt your for your password.
 
@@ -21,33 +28,41 @@ directory. It may prompt your for your password.
 This script will build the npm dependencies docker image along with all the other defined
 in docker-compose.yml. It will take some time.
 
-Replace the FIREBASE-API-KEY placeholder in the docker-compose.yml with your firebase api-key.
-Replace the AUTH-SERVER-URL with the URL of the authentication server (localhost should work when testing the webpage locally), ex. https://localhost:3000/
+Replace the following placeholders in docker-compose.yml:
+
+- MANDRILL-KEY
+- MANDRILL-EMAIL-TO will be used in the "from" field of emails sent to the user
+- FIREBASE-API-KEY placeholder in the docker-compose.yml with your firebase api-key.
+- AUTH-SERVER-URL with the URL of the authentication server ex  https://52.59.22.11:3000/, it will be used by the frontend
+to send request to the authentication server
+- JWT-TIMEOUT is the JWT expiration time in seconds
+
+Run the following script to boot an ethereum testnet node:
+
+```bash
+./startEthereum.sh
+```
+
+Wait till it syncs up with the testnet, that is the number of block reaches the last one, latest block can be found at
+https://ropsten.etherscan.io/
+
+If you already have a synchronized ethereum container rename it to 'go-ethereum' and open the port 8545
+
+Run the following script to boot everything else:
 
 ```bash
 ./start.sh
 ```
 
-NOTE: if your are running this locally the mobile app might not be able to connect with the authentication server (it downloads the full url from firebase database, you might be able to somehow pull this off in the emulator)
-
-All the services should we accesible via localhost/docker ip.
-
-Go to https://localhost:3000/information and accept the self-signed certificate. Also click the  Initialize server button and wait for all the fields to fill.
-
-After that you have to stop the mining process, which causes transaction forking. To do so run the stopMiner.sh and pass the IP (localhost should work locally) of the go-ethereum docker container. (If you are running it on the GCP use the stopMining.sh in the kubernetes directory)
-
-You can access the sample web via http://localhost:3001/authzero
-
-WINDOWS users: You have to turn on port forwarding in your virtualbox Default docker VM, so that they can be mapped to localhost.
-
-## Integration tests
-
-Docker compose is also used for integration testing.
-
-### Registration service
+After everything starts properly run the script:
 
 ```bash
-cd registry-service-integration-tests
-docker-compose.exe build
-docker-compsoe.exe up
+./initialize.sh
 ```
+
+You are set!
+
+Frontend will be available at url http://ip:3001/authzero
+Wallet will be available at url http://ip:3002/wallet
+
+Remember to change the server ip in the firebase console before using the mobile app!
