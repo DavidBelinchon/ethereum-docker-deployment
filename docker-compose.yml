@@ -14,6 +14,8 @@ ethereum-web:
   command: "/bin/bash start.sh AUTHENTICATION-SEVER-URL http://go-ethereum:8545 0xf01f9d549b92e61079caad748471b0864e88e30f JWT-TIMEOUT"
   links:
    - ethereum-authentication-server
+  external_links:
+   - go-ethereum
 user-db:
   build: ./staging/ethereum-user-db-docker
   ports:
