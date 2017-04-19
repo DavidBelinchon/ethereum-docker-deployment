@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose.exe up 
+docker-compose up 
