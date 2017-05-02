@@ -20,6 +20,7 @@ cp ../../npm-dependencies/Dockerfile Dockerfile
 
 cd ..
 
+clone go-ethereum
 clone ethereum-authentication-server
 clone ethereum-sample-web
 clone ethereum-user-db-docker
