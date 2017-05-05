@@ -29,7 +29,7 @@ This script will build the npm dependencies docker image along with all the othe
 in docker-compose.yml. It will take some time.
 
 Mapper contract
-Use version compiled on the testnet (Ropsten) with address → 0xc553a1fb37adb89c21d605a56e44c4516ce4c11e 
+Use version compiled on the testnet (Ropsten) with address → 0xf01f9d549b92e61079caad748471b0864e88e30f 
 
 Compile your own contract:
 Go to https://ethereum.github.io/browser-solidity/
