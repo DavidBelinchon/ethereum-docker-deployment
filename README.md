@@ -28,6 +28,15 @@ directory. It may prompt your for your password.
 This script will build the npm dependencies docker image along with all the other defined
 in docker-compose.yml. It will take some time.
 
+Mapper contract
+Use version compiled on the testnet (Ropsten) with address → 0xc553a1fb37adb89c21d605a56e44c4516ce4c11e 
+
+Compile your own contract:
+Go to https://ethereum.github.io/browser-solidity/
+Copy the contracts
+click to create button to both contracts
+wait to have the address
+
 Replace the following placeholders in docker-compose.yml:
 
 - MANDRILL-KEY
