@@ -32,6 +32,7 @@ Replace the following placeholders in docker-compose.yml:
 
 - MANDRILL-KEY
 - MANDRILL-EMAIL-TO will be used in the "from" field of emails sent to the user
+- CONTRACT-ADDRESS with the mapper contract address. ex: 0xf01f9d549b92e61079caad748471b0864e88e30f
 - FIREBASE-API-KEY placeholder in the docker-compose.yml with your firebase api-key.
 - AUTH-SERVER-URL with the URL of the authentication server ex  https://52.59.22.11:3000/, it will be used by the frontend
 to send request to the authentication server
