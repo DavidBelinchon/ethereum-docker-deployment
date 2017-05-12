@@ -53,8 +53,7 @@ Run the following script to boot an ethereum testnet node:
 ./startEthereum.sh
 ```
 
-Wait till it syncs up with the testnet, that is the number of block reaches the last one, latest block can be found at
-https://ropsten.etherscan.io/
+Wait till it syncs up with the testnet, so wait till you see this message: "Fast sync complete, auto disabling"
 
 If you already have a synchronized ethereum container rename it to 'go-ethereum' and open the port 8545
 
